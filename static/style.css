@@ -1,0 +1,140 @@
+/* Reset Everything */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+}
+
+/* Background Image + Dark Overlay */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background:
+        linear-gradient(rgba(15,12,41,0.85), rgba(15,12,41,0.85)),
+        url("https://images.unsplash.com/photo-1503264116251-35a269479413?q=80&w=1600&auto=format&fit=crop");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: zoomBg 20s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+@keyframes zoomBg {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+.container {
+    width: 600px;
+    margin: 80px auto;
+}
+
+
+.title {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 30px;
+}
+
+/* Glass Card */
+.glass-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    transition: 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+/* Dropdown Fix */
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 5px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 14px;
+}
+
+select option {
+    background: #1c1c3c;
+    color: white;
+}
+
+.analyze-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 15px;
+    border: none;
+    margin-top: 15px;
+    background: linear-gradient(90deg,#6a11cb,#2575fc);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.analyze-btn:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 20px #6a11cb;
+}
+
+.result-card {
+    margin-top: 40px;
+    padding: 35px;
+    border-radius: 25px;
+    background: rgba(0,0,0,0.55);
+    animation: fadeIn 0.6s ease forwards;
+    line-height: 1.7;
+}
+
+/* Add spacing between elements */
+.result-card h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.result-card h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.result-card p {
+    font-size: 16px;
+    opacity: 0.85;
+}
+
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

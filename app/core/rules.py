@@ -1,0 +1,2 @@
+SAFE_MAX = 3
+CAUTION_MAX = 6
