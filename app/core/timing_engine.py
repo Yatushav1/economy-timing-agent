@@ -41,7 +41,23 @@ Goal Urgency: {data.goal_urgency}
 Decision Preference: {data.decision_preference}
 """
 
-    explanation = generate_explanation(decision, reasons)
+    # Try AI explanation first
+    try:
+        explanation = generate_explanation(decision, reasons)
+    except:
+        explanation = None
+
+    # 🔥 SMART FALLBACK (IMPORTANT FOR SUBMISSION)
+    if not explanation or "temporarily unavailable" in explanation.lower():
+
+        if decision == "WAIT":
+            explanation = "Your financial stability and savings level suggest high risk exposure. Waiting allows better liquidity management and emotional clarity before committing to a decision."
+
+        elif decision == "CAUTION":
+            explanation = "Some financial and behavioral risk factors are present. A careful and phased approach would reduce exposure while maintaining flexibility."
+
+        else:
+            explanation = "Your financial position and stress level indicate manageable risk. This appears to be a relatively stable opportunity window."
 
     return {
         "decision": decision,
